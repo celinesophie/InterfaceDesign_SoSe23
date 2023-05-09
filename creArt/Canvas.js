@@ -1,6 +1,6 @@
 "use strict";
-var canvas2b;
-(function (canvas2b) {
+var creArtMain;
+(function (creArtMain) {
     window.addEventListener("load", handleLoad);
     let crc2;
     let imgData;
@@ -8,21 +8,10 @@ var canvas2b;
         //get rendering context
         let canvas = document.querySelector("canvas");
         crc2 = canvas.getContext("2d");
-        //kreise mit for schleife, gleicher Mittelpunkt
-        // for (let index: number = 0; index <= 2; index++) {
-        //     //hsl colors
-        //     let h1: number = Math.floor(Math.random() * (329 - 166 + 1)) + 166; //farbe
-        //     let s1: number = Math.floor(Math.random() * 100); //saturation
-        //     let l1: number = Math.floor(Math.random() * 70); //luminanz
-        //     let a1: number = Math.random(); //durchsichtigkeit
-        //     let radius: number = Math.random() * 200;
-        //     let color: string = "hsla(" + h1 + "," + s1 + "%," + l1 + "%," + a1 + ")";
-        //     drawCircle(radius, color);
-        // }
         //get image data
         imgData = crc2.getImageData(0, 0, canvas.width, canvas.height);
         // crc2.putImageData(imgData, 0, 0); // das gespeicherte Bild wiederverwenden
-        //Taste drücken um Bild zu generieren
+        //verschiedene Tasten drücken um Bild zu generieren
         document.addEventListener("keydown", function (event) {
             if (event.key === "ArrowUp") {
                 drawBackgroundHappy();
@@ -34,6 +23,10 @@ var canvas2b;
             }
             if (event.key === "a") {
                 drawRect();
+                // imgData = crc2.getImageData(0, 0, canvas.width, canvas.height);
+            }
+            if (event.key === "s") {
+                drawCircle();
                 // imgData = crc2.getImageData(0, 0, canvas.width, canvas.height);
             }
         });
@@ -87,16 +80,6 @@ var canvas2b;
         crc2.fillStyle = gradient;
         crc2.fillRect(0, 0, 900, 600);
     }
-    function drawCircle(_radius, _color) {
-        crc2.beginPath();
-        crc2.arc(450, 300, _radius, 0, 2 * Math.PI);
-        crc2.fillStyle = _color;
-        crc2.fill();
-        //Stroke wegmachen?
-        crc2.lineWidth = 0;
-        crc2.strokeStyle = "rgba(1, 1, 1, 0)";
-        crc2.closePath();
-    }
     function drawRect() {
         //random position as variables
         let x = Math.random() * 700;
@@ -129,5 +112,18 @@ var canvas2b;
             console.log(i);
         }
     }
-})(canvas2b || (canvas2b = {})); //namespace
+    function drawCircle() {
+        //random position as variables
+        let x = Math.random() * 700;
+        let y = Math.random() * 500;
+        //random number for radius
+        let r = Math.random() * 50;
+        crc2.beginPath();
+        crc2.arc(x, y, r, 0, 2 * Math.PI);
+        crc2.lineWidth = 1;
+        crc2.strokeStyle = "black";
+        crc2.stroke();
+        crc2.closePath();
+    }
+})(creArtMain || (creArtMain = {})); //namespace
 //# sourceMappingURL=Canvas.js.map

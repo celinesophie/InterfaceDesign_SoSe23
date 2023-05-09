@@ -16,11 +16,12 @@
 body {
     background-color: rgb(219, 219, 219);
     font-family: "Roboto";
+
 }
 
 canvas {
     background-color: white;
-    margin-left: 225px;
+    margin-left: 305px;
 }
 
 h1 {
@@ -29,4 +30,9 @@ h1 {
 
 p {
     text-align: center;
+    line-height: 10px;
+}
+
+.headline {
+    font-weight: bold;
 }
