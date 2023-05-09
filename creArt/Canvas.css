@@ -1,0 +1,32 @@
+@font-face {
+    font-family: "TommySoft";
+    src: url("/fonts/Tommy-Soft.otf");
+}
+
+@font-face {
+    font-family: "TommyRegular";
+    src: url("/fonts/Tommy-Regular.otf");
+}
+
+@font-face {
+    font-family: "Roboto";
+    src: url("/fonts/Roboto-Regular.ttf");
+}
+
+body {
+    background-color: rgb(219, 219, 219);
+    font-family: "Roboto";
+}
+
+canvas {
+    background-color: white;
+    margin-left: 225px;
+}
+
+h1 {
+    text-align: center;
+}
+
+p {
+    text-align: center;
+}
