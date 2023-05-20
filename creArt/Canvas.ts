@@ -32,6 +32,10 @@ namespace creArtMain {
                 drawCircle();
                 // imgData = crc2.getImageData(0, 0, canvas.width, canvas.height);
             }
+            if (event.key === "d") {
+                drawTriangle();
+                // imgData = crc2.getImageData(0, 0, canvas.width, canvas.height);
+            }
         })
     } // handleload
 
@@ -141,5 +145,21 @@ namespace creArtMain {
         crc2.strokeStyle = "black";
         crc2.stroke();
         crc2.closePath();
+    }
+
+    function drawTriangle(): void {
+         //random position as variables
+         let x: number = Math.random() * 700; 
+         let y: number = Math.random() * 500;
+
+         crc2.beginPath();
+         crc2.moveTo(x, y);
+         crc2.lineTo(x + 30, y);
+         crc2.lineTo(x + 15, y - 15);
+         crc2.lineTo(x, y);
+         crc2.lineWidth = 1;
+         crc2.strokeStyle = "black"
+         crc2.stroke();
+         crc2.closePath();
     }
 } //namespace

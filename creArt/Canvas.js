@@ -29,6 +29,10 @@ var creArtMain;
                 drawCircle();
                 // imgData = crc2.getImageData(0, 0, canvas.width, canvas.height);
             }
+            if (event.key === "d") {
+                drawTriangle();
+                // imgData = crc2.getImageData(0, 0, canvas.width, canvas.height);
+            }
         });
     } // handleload
     //FUNKTIONEN
@@ -120,6 +124,20 @@ var creArtMain;
         let r = Math.random() * 50;
         crc2.beginPath();
         crc2.arc(x, y, r, 0, 2 * Math.PI);
+        crc2.lineWidth = 1;
+        crc2.strokeStyle = "black";
+        crc2.stroke();
+        crc2.closePath();
+    }
+    function drawTriangle() {
+        //random position as variables
+        let x = Math.random() * 700;
+        let y = Math.random() * 500;
+        crc2.beginPath();
+        crc2.moveTo(x, y);
+        crc2.lineTo(x + 30, y);
+        crc2.lineTo(x + 15, y - 15);
+        crc2.lineTo(x, y);
         crc2.lineWidth = 1;
         crc2.strokeStyle = "black";
         crc2.stroke();
