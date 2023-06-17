@@ -13,6 +13,11 @@
     src: url("../fonts/Roboto-Regular.ttf");
 }
 
+@font-face {
+    font-family: "EntropicBrush";
+    src: url("../fonts/EntropicBrush.otf");
+}
+
 body {
     background-color: rgb(219, 219, 219);
     font-family: "Roboto";
@@ -28,6 +33,8 @@ canvas {
 
 h1 {
     text-align: center;
+    font-family: "EntropicBrush";
+    font-size: 35px;
 }
 
 p {
@@ -35,6 +42,21 @@ p {
     line-height: 10px;
 }
 
-.headline {
-    font-weight: bold;
+#video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
 }
+
+.content {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(48,25,52,0.75);
+      }

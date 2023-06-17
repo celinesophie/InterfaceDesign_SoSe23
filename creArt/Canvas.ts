@@ -5,6 +5,15 @@ namespace creArtMain {
     let crc2: CanvasRenderingContext2D;
     let imgData: ImageData;
 
+    let audioHappy = new Audio("../audio/HeartbreakAnthem.mp3");
+    let audioSad = new Audio("../audio/GoodEnough.mp3");
+    let audioAngry = new Audio("");
+
+    let woosh = new Audio ("../sounds/short-woosh.mp3")
+    let pencil = new Audio ("../sounds/scribble1.mp3")
+    let splash = new Audio ("../sounds/splash-drop.mp3")
+
+
     function handleLoad(_event: Event): void {
         //get rendering context
         let canvas: HTMLCanvasElement = document.querySelector("canvas")!;
@@ -17,22 +26,35 @@ namespace creArtMain {
         //verschiedene Tasten drücken um Bild zu generieren
         document.addEventListener("keydown", function (event) {
             if (event.key === "ArrowUp") {
+                splash.play();
+                // audioHappy.pause;
+                // audioHappy.currentTime = 0;
+                // audioSad.pause;
+                // audioSad.currentTime = 0;
                 drawBackgroundHappy();
                 // imgData = crc2.getImageData(0, 0, canvas.width, canvas.height);
             }
             if (event.key === "ArrowDown") {
+                splash.play();
+                // audioHappy.pause;
+                // audioHappy.currentTime = 0;
+                // audioSad.pause;
+                // audioSad.currentTime = 0;
                 drawBackgroundSad();
                 // imgData = crc2.getImageData(0, 0, canvas.width, canvas.height);
             }
             if (event.key === "a") {
+                pencil.play();
                 drawRect();
                 // imgData = crc2.getImageData(0, 0, canvas.width, canvas.height);
             }
             if (event.key === "s") {
+                pencil.play();
                 drawCircle();
                 // imgData = crc2.getImageData(0, 0, canvas.width, canvas.height);
             }
             if (event.key === "d") {
+                pencil.play();
                 drawTriangle();
                 // imgData = crc2.getImageData(0, 0, canvas.width, canvas.height);
             }
@@ -41,6 +63,14 @@ namespace creArtMain {
 
     //FUNKTIONEN
     function drawBackgroundHappy(): void {
+
+        // let videoWaves = document.createElement("video");
+        // videoWaves.src = "../videos/waves.mp4"
+        // videoWaves.controls = false;
+        // videoWaves.height = 1080;
+        // videoWaves.width = 1920;
+
+        // document.body.appendChild(videoWaves)
 
         // Create a linear gradient
         let gradient: CanvasGradient = crc2.createLinearGradient(0, 0, 899, 499);
@@ -67,6 +97,9 @@ namespace creArtMain {
         // Set the fill style and draw a rectangle
         crc2.fillStyle = gradient;
         crc2.fillRect(0, 0, 900, 600);
+
+        //audio
+        // audioHappy.play();
     }
 
     function drawBackgroundSad(): void {
@@ -96,6 +129,9 @@ namespace creArtMain {
         // Set the fill style and draw a rectangle
         crc2.fillStyle = gradient;
         crc2.fillRect(0, 0, 900, 600);
+
+        //audio
+        // audioSad.play();  
     }
 
     function drawRect(): void {
@@ -129,7 +165,8 @@ namespace creArtMain {
             crc2.strokeRect(x, y, 150, 50);
             crc2.closePath();
             console.log(i);
-        }    
+        }  
+        
     }
 
     function drawCircle(): void {       
